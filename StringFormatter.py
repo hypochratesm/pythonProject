@@ -68,3 +68,23 @@
 str = "{0:<10}".format("hi")
 print(str)
 print(len(str))
+
+#오른쪽정렬
+str = "{0:>10}".format("hi")
+print(str)
+
+#중앙정렬
+str = "{0:^10}".format("hi")
+print(str)
+
+#공백채우기
+str = "{0:=^10}".format("hi")
+print(str)
+str = "{0:=>10}".format("hi")
+print(str)
+str = "{0:=<10}".format("hi")
+print(str)
+
+#f 문자열 포매팅
+
+
