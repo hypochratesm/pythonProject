@@ -86,5 +86,37 @@ str = "{0:=<10}".format("hi")
 print(str)
 
 #f 문자열 포매팅
+name = "홍길동"
+age = 30
+print(f'나의 이름은 {name}입니다. 나이는 {age} 입니다.')
+
+#f 문자열 포매팅
+name = "홍길동"
+age = 30
+print(f'나의 이름은 {name}입니다. 나이는 {age+1} 입니다.')
+
+#문자열세기
+a="hobby"
+a.count('b')
+print(a.count('b'))
+
+#위치 알려주기 -1
+a = "Python is the best choice"
+print(a.find('b'))
+
+a = "Python is the best choice"
+print(a.find('p'))
+
+#위치 알려주기 -1
+a = "Python is the best choice"
+print(a.index('i'))
+# a = "Python is the best choice"
+# print(a.index('k'))
+
+
+
+
+
+
 
 
