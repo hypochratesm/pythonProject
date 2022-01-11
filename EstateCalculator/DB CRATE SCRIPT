@@ -1,0 +1,51 @@
+drop table CMN_DM_INFO_MASTER
+
+CREATE TABLE CMN_DM_INFO_MASTER
+(
+	 CMN_KEY VARCHAR(40) NOT NULL KEY COMMENT  '공통코드키'
+	 , CMN_HNG_NAME VARCHAR(200) NOT NULL  COMMENT '공통코드영문도메인명'
+	 , CMN_ENG_NAME VARCHAR(200)  COMMENT '공통코드한글도메인명'
+	 , USE_YN VARCHAR(1) NOT NULL COMMENT '사용여부'
+	 , RG_ID   VARCHAR(40) NOT NULL COMMENT '등록자ID'
+	 , RG_DTTM TIMESTAMP NOT null default current_timestamp COMMENT '등록시간' 
+	 , CG_ID VARCHAR(40) NOT NULL COMMENT '변경자ID'
+	 , CG_DTTM TIMESTAMP NOT null default current_timestamp COMMENT '변경시간'
+	 , index IDX_CMN_KEY (CMN_KEY)
+)
+
+drop table CMN_DM_INFO_DETAIL
+
+CREATE TABLE CMN_DM_INFO_DETAIL
+(
+	CMN_KEY VARCHAR(40)NOT NULL COMMENT  '공통코드키'
+	, CMN_SRNO INT(4)  NOT NULL COMMENT  '공통코드일련번호'
+	, CMN_VAL VARCHAR(40) NOT NULL COMMENT  '공통코드유효값'
+	, CMN_VAL_NM VARCHAR(200) NOT NULL COMMENT  '공통코드유효값명'
+	, CMN_DES VARCHAR(200) NOT NULL COMMENT  '공통코드설명'
+	, USE_YN VARCHAR(1) NOT NULL COMMENT '사용여부'
+	, VAL_STDT DATE NOT null COMMENT '유효시작일'
+	, VAL_ENDT DATE NOT null COMMENT '유효종료일'
+	, RG_ID   VARCHAR(40) NOT NULL COMMENT '등록자ID'
+	, RG_DTTM TIMESTAMP NOT null default  current_timestamp COMMENT '등록시간' 
+	, CG_ID VARCHAR(40) NOT NULL COMMENT '변경자ID'
+	, CG_DTTM TIMESTAMP NOT NULL default  current_timestamp COMMENT '변경시간'
+	, constraint PK_CMN_DM_INFO_DETAIL PRIMARY KEY(CMN_KEY , CMN_SRNO)
+	, foreign KEY(CMN_KEY) references CMN_DM_INFO_MASTER (CMN_KEY)  
+	, index IDX_CMN_DETAIL (CMN_KEY , CMN_SRNO)
+);
+
+--생성된 테이블 조회
+
+SELECT * FROM CMN_DM_INFO_MASTER -- 공통코드 원장
+SELECT * FROM CMN_DM_INFO_DETAIL -- 공통코드 상세
+
+--생성된 인덱스 조회
+show index from CMN_DM_INFO_MASTER
+show index from CMN_DM_INFO_DETAIL
+
+
+
+desc CMN_DM_INFO_DETAIL
+
+
+

@@ -11,7 +11,7 @@ class httpUtil() :
         self.result = []
     def run_http(self):
 
-        params = {'serviceKey' : Const.DECODING_KEY, 'LAWD_CD' : Const.LAWD_CD, 'DEAL_YMD' : Const.DEAL_YMD }
+        params = {'serviceKey' : Const.DECODING_KEY, 'LAWD_CD' : Const.LAWD_CD, 'DEAL_YMD' : Const.DEAL_YMD , '_type' : "json" }
 
         url = "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade"
 
